@@ -38,6 +38,7 @@ Writers ---→    |
 * Loader reads from disk to refill memory when it runs low.
 
 <h2>Future Improvements:</h2>
+
 * Standardized API for easier integration with file based queues like Chronicle Queue.
 * Concurrent access optimizations.
 * Kryo serialization support.
