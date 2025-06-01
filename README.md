@@ -9,6 +9,7 @@ It combines an in-memory FIFO queue for fast access and a disk-backed write-ahea
 It behaves like a sliding pipe where the head lives in memory (hot path), and the tail is written to disk (cold path).
 
 <h2>Features:</h2>
+
 * Sliding memory window for fast, FIFO in-memory reads
 * Disk-backed persistence using memory-mapped segment files
 * Automatic backfill of memory from disk
