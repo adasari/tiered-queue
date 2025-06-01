@@ -35,7 +35,13 @@ public class TieredQueue {
     }
 
     public synchronized String read() {
-        return memoryQueue.poll();
+        String msg = memoryQueue.poll();
+        if (msg == null && diskLog.hasUnreadData()) {
+            List<String> batch = diskLog.loadNextBatch(100);
+            memoryQueue.refillFrom(batch);
+            msg = memoryQueue.poll();
+        }
+        return msg;
     }
 
     private void loadFromDisk() {
